@@ -30,3 +30,12 @@ function shuffle(array) {
 
   return array;
 }
+
+
+function log(obj){
+    
+    if (!this.log.log_control)
+        return;
+           
+    this.log.log_control.innerHTML+=(""+JSON.stringify(obj)+"<br />");
+}
