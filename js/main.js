@@ -216,9 +216,7 @@ function makeAProblem(numberOfXTiles,numberOfYTiles){
 
 
 function makeATree(rcnt,ccnt){
-    
-    
-    //alert('lll');
+
     var ans = [];
     
     for(var i = 0; i<rcnt;i++){
