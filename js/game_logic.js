@@ -131,12 +131,9 @@ function GameLogic(){
         edges = shuffle(edges);
 
         var edgesWeNeed = rcnt*ccnt-1;
-
-        var i=-1;
         var edgesTaken=0;
-        while(edgesTaken<edgesWeNeed && (i+1)<edges.length){
 
-            i++;
+        for(var i=0; edgesTaken<edgesWeNeed && i<edges.length; i++){
 
             var currentEdge = edges[i];
 
