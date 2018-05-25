@@ -250,8 +250,72 @@ function GameLogic(){
 
     this.updateTileRotation = function(problem,r,c){
         problem[r][c].rotation = (problem[r][c].rotation +1)%4;
-        this.propagateLit(problem);    
+        this.propagateLit(problem);   
     };
+
+    this.isSolved = function(problem){
+        
+        var rcnt = problem.length;
+        var ccnt = problem[0].length;
+        
+        var upDummyTiles = [];
+        var downDummyTiles = [];
+        for(var i=0;i<ccnt;i++) {
+            upDummyTiles.push(new Tile('dummy',wire_types[0],2,false,-1,i));
+            downDummyTiles.push(new Tile('dummy',wire_types[0],0,false,ccnt,i));
+        }
+        
+        var leftDummyTiles = [];
+        var rightDummyTiles = [];
+        for(var i=0;i<rcnt;i++) {
+            leftDummyTiles.push(new Tile('dummy',wire_types[0],3,false,i,-1));
+            rightDummyTiles.push(new Tile('dummy',wire_types[0],1,false,i,ccnt));
+        }
+
+
+        for (let i = 0; i < rcnt; i++) {
+            for (let j = 0; j < ccnt; j++) {
+                if (!problem[i][j].isLit)
+                    return false;
+                
+                var dr = [-1,0,1,0];
+                var dc = [0,-1,0,1];
+
+                for (let d = 0; d < 4; d++) {
+                    
+                    checkr = problem[i][j].row + dr[d];
+                    checkc = problem[i][j].col + dc[d];
+
+                    if (checkr == -1){ 
+                        if (problem[i][j].isConnectedTo(upDummyTiles[j])) 
+                            return false;
+                    }                    
+                    else if (checkc == -1){ 
+                         if (problem[i][j].isConnectedTo(leftDummyTiles[i])) 
+                            return false;
+                    }                    
+                    else if (checkr == rcnt){ 
+                         if (problem[i][j].isConnectedTo(downDummyTiles[j])) 
+                            return false;
+                    }                    
+                    else if (checkc == ccnt){ 
+                         if (problem[i][j].isConnectedTo(rightDummyTiles[i])) 
+                            return false;                    
+                    }
+                    else if (problem[i][j].isConnectedTo(problem[checkr][checkc]) 
+                            && !problem[checkr][checkc].isConnectedTo(problem[i][j]))
+                            return false;
+                
+                    
+                }  
+            
+
+            }
+        }
+
+        return true;
+
+    }
 
 
 }

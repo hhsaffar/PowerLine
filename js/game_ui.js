@@ -16,6 +16,7 @@ function GameUI(game_container,row_count, col_count){
     var houseSvg = '<polygon id="TMPL_BUIDINGID" class="house TMPL_LITNOLIT" points="33 20 15 32 22 32 22 50 44 50 44 32 51 32" style=" stroke:gray;" />';
     var powerPlantSvg = '<polygon id="TMPL_BUIDINGID" class="house TMPL_LITNOLIT" points="10 12 10 46 55 46 55 46 55 8 45 8 45 29" style=" stroke:gray;" />';
 
+    this.game_over = false;
 
     function drawTile(tile){
 
@@ -65,9 +66,19 @@ function GameUI(game_container,row_count, col_count){
 
         for(var i=0;i<g_tiles.length;i++){
             g_tiles[i].onclick = function(){
+                            if (this.game_over) return;
                             var a = this.id.split('-');
                             game_logic.updateTileRotation(theProblem,parseInt(a[1]),parseInt(a[2]));
+                            
+                            this.game_over = game_logic.isSolved(theProblem);
+                            
                             drawTheProblem(theProblem,'gameMainArea',gameWidth,gameHeight);
+                            
+                            if (this.game_over){
+                                log("You won!");
+                                return;
+                            }
+                            
                             assignEventHandlers();
                             }; 
         }
