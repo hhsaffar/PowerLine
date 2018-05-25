@@ -17,7 +17,8 @@ function Tile(tileType,wireType,rotation,isLit,row,col){
         var dc = [0,-1,0,1];
         
         for(var i=0;i<nowConnceted.length;i++){
-            if ((anotherTile.row == this.row+dr[nowConnceted[i]]) && (anotherTile.col == this.col+dc[nowConnceted[i]]))
+            if ((anotherTile.row == this.row+dr[nowConnceted[i]]) 
+                && (anotherTile.col == this.col+dc[nowConnceted[i]]))
                 return true;                
         }
         
@@ -142,7 +143,8 @@ this.makeATree = function(rcnt,ccnt){
         if (ans[currentEdge.fr][currentEdge.fc].length == 3) continue;
         if (ans[currentEdge.tr][currentEdge.tc].length == 3) continue;
         
-        if (ans[currentEdge.fr][currentEdge.fc].group === ans[currentEdge.tr][currentEdge.tc].group) continue;
+        if (ans[currentEdge.fr][currentEdge.fc].group 
+            === ans[currentEdge.tr][currentEdge.tc].group) continue;
         
         var tempg = ans[currentEdge.fr][currentEdge.fc].group;
     
@@ -150,8 +152,6 @@ this.makeATree = function(rcnt,ccnt){
          for(var ii = 0; ii<rcnt;ii++){
            for(var jj = 0; jj<ccnt;jj++){
                 if (ans[ii][jj].group==tempg){
-                    
-                    
                     ans[ii][jj].group = ans[currentEdge.tr][currentEdge.tc].group;}
            }
         }   
