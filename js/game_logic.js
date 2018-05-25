@@ -40,35 +40,19 @@ var wire_types = [
       connectedTo:[[0],[1],[2],[3]]      
     },
     
-    {
-        id : 1,
-        connectedTo:[[0,2],[1,3],[0,2],[1,3]]
-    },
+    { id : 1, connectedTo:[[0,2],[1,3],[0,2],[1,3]] },
     
-    {
-        id : 2,
-        connectedTo : [[0,3],[0,1],[1,2],[2,3]]
-    },
+    { id : 2, connectedTo : [[0,3],[0,1],[1,2],[2,3]] },
     
-    {
-        id : 3,
-        connectedTo:[[0,1,3],[0,1,2],[1,2,3],[2,3,0]]
-    }
+    { id : 3, connectedTo:[[0,1,3],[0,1,2],[1,2,3],[2,3,0]] }
     
 ];
-
-
-
 
 var tile_types = [
                     { name : 'house' },
                     { name : 'power_plant' },
                     { name : 'wire' }
                 ];
-
-
-
-
 
 
 this.makeAProblem = function(numberOfXTiles,numberOfYTiles){
