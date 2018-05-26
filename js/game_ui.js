@@ -6,10 +6,10 @@ function GameUI(game_container,row_count, col_count){
     var gameHeight = row_count;
     var game_logic = new GameLogic();
 
-    var wire_type_0_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 36 36 36 36 0" transform="rotate(TMPL_ROTANG, 32.5 32.5)" />'
-    var wire_type_1_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 65 36 65 36 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
-    var wire_type_2_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 36 65 36 65 28 36 28 36 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
-    var wire_type_3_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 28 0 28 0 36 65 36 65 28 36 28 36 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
+    var wire_type_0_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 37 37 37 37 0" transform="rotate(TMPL_ROTANG, 32.5 32.5)" />'
+    var wire_type_1_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 65 37 65 37 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
+    var wire_type_2_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 37 65 37 65 28 37 28 37 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
+    var wire_type_3_shape = '<polygon id="TMPL_WIREID" class="wire TMPL_LITNOLIT" points="28 0 28 28 0 28 0 37 65 37 65 28 37 28 37 0" transform="rotate(TMPL_ROTANG 32.5 32.5)" />'
 
     var tile_width = 65;
     var tileSVG = '<svg id="TMPL_SVGID" height="65" width="65" style="background-color:black"><g class="tile" id="TMPL_GID" >  <rect x="1" y="1" width="64" height="64" style="stroke:blue; stroke-width:1;" />  TMPL_WIRE_PLACE_HOLDER  TMPL_BUILDING_PLACE_HOLDER </g></svg>';
